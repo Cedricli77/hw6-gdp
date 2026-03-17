@@ -8,8 +8,11 @@ Original file is located at
 """
 
 import re
+from io import StringIO
+
 import pandas as pd
 import plotly.express as px
+import requests
 import streamlit as st
 import country_converter as coco
 
@@ -113,7 +116,14 @@ def get_region(country_name):
 
 @st.cache_data
 def load_gdp_data():
-    tables = pd.read_html(URL)
+    headers = {
+        "User-Agent": "Mozilla/5.0"
+    }
+
+    response = requests.get(URL, headers=headers, timeout=30)
+    response.raise_for_status()
+
+    tables = pd.read_html(StringIO(response.text))
 
     gdp_table = None
     for table in tables:
