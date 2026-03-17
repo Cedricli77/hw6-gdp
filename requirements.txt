@@ -5,3 +5,4 @@ lxml
 beautifulsoup4
 html5lib
 country_converter
+requests
