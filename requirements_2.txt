@@ -1,6 +1,0 @@
-streamlit
-pandas
-pydeck
-plotly
-lxml
-country_converter

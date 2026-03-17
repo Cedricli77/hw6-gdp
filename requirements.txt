@@ -1,0 +1,7 @@
+streamlit
+pandas
+plotly
+lxml
+beautifulsoup4
+html5lib
+country_converter
